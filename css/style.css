@@ -19,43 +19,94 @@ header {
 .header-content ul {
     list-style: none;
     display: flex;
-
-}
-.header-content ul li {
-    margin: 0 7px;
-    letter-spacing: 1.1px;
-}
-.header-content ul li a {
-    font-size: 20px;
-    color: #fff;
-
-}
-.header-content ul li:first-child a{
+    align-items: center;
     font-size: 22px;
+}
+
+.header-content ul#user_info {
+    display: none;
+}
+.header-content ul.list li a {
+    background: -webkit-linear-gradient(left, red, yellow);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;    margin: 0 7px;
+    text-decoration: none;
+}
+.header-content ul#user_info li a{
+    display: block;
+    margin: 0 10px;
     text-decoration: none;
     background: -webkit-linear-gradient(left, red, yellow);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    margin:  0 7px;
 }
-.header-content ul li:nth-child(2) a {
-    font-size: 22px;
-    text-decoration: none;
-    background: -webkit-linear-gradient(right, red, yellow);
+.header-content ul#user_info  .icon {
+    background: -webkit-linear-gradient(left, red, yellow, gold);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    cursor: pointer;
+
+}
+.header-content ul#user_info li {
+    position: relative;
+}
+.header-content ul#user_info .badge {
+    color: #fff;
+    background: #3da542;
+    border-radius: 50%;
+    font-size: 10px;
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    line-height: 20px;
+    text-align: center;
+}
+.cart-products {
+    text-transform: capitalize;
+    font-size: 16px;
+    position: absolute;
+    background: #ddd;
+    width: 200px;
+    padding: 10px;
+    top: 48px;
+    transform: translate(-45%, 0);
+    border: 1px solid black;
+    background: -webkit-radial-gradient(20% 10%, farthest-corner, yellow, green);
+    display: none;
+    cursor: pointer;
+}
+.cart-products p {
+    margin-bottom: 10px;
+    color: gol;
+    font-size: 18px;
     font-weight: bold;
-    letter-spacing: 1.5px;
-    margin:  0 7px;
+    letter-spacing: 1.2px;
+    margin: 10px 0;
+}
+.cart-products a {
+    display: block;
+    background: green;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #000;
 }
 .header-content .logo a {
     text-decoration: none;
     font-size: 45px;
     color: #fff;
 }
-.header-content ul#user_info {
+
+.header-content ul#user_info li .first {
+    position: relative;
+
+}
+.header-content ul#user_info li .badge {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
     display: none;
 }
 section {
@@ -86,11 +137,61 @@ section form input[type="submit"]{
 section form input[type="submit"]:hover{
     opacity: .8;
 }
-
-
-
-
-
+/* home */
+.products{
+    width: 60%;
+   
+    margin-top: 10px;
+  
+}
+.product-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    /* align-items: center; */
+    border: 1px solid #ddd;
+}
+.product-item img {
+    width: 100%;
+    height: 100%;
+}
+.product-item-desc {
+    text-align: center;
+    padding: 40px 0;
+}
+.product-item-desc h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.product-item-desc p {
+    color: #888;
+    margin-bottom: 10px;
+    
+}
+.product-item-desc span {
+    font-weight: bold;
+}
+.product-item-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+.product-item-action .btnShow {
+    display: block;
+    padding: 10px;
+    background: #751f8f;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .5s;
+}
+.product-item-action .btnShow:hover {
+    background: 	#33ae81;
+    
+}
 
 
 
