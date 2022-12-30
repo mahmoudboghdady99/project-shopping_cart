@@ -82,6 +82,7 @@ header {
     font-weight: bold;
     letter-spacing: 1.2px;
     margin: 10px 0;
+    text-align: center;
 }
 .cart-products a {
     display: block;
@@ -146,7 +147,8 @@ section form input[type="submit"]:hover{
 }
 .product-item {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-rows: 150px;
     grid-gap: 10px;
     /* align-items: center; */
     border: 1px solid #ddd;
@@ -157,7 +159,7 @@ section form input[type="submit"]:hover{
 }
 .product-item-desc {
     text-align: center;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 .product-item-desc h2 {
     font-size: 30px;

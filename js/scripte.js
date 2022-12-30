@@ -1,34 +1,10 @@
-//hold variables
 
-let links = document.querySelector(".list")
-let userInfo=document.querySelector("#user_info")
-let userDom=document.querySelector("#user_name")
-let logOut=document.querySelector("#logout")
-
-
-
-
-
-let nameUser=localStorage.getItem("username");
-
-
-links.remove();
-userInfo.style.display="flex";
-userDom.innerHTML=nameUser;
-
-logOut.addEventListener("click", function()
-{
-    localStorage.clear();
-    setTimeout(function(){
-        window.location="register.html"
-    }, 1500)
-})
 
 // products
 
 //hold variables
 let productDom=document.querySelector(".products")
-let productCart=document.querySelector(".cart-products div")
+let productCartDiv=document.querySelector(".cart-products div")
 let badgeDom=document.querySelector(".badge")
 
 let shoppingCart=document.querySelector(".shoping-cart")
@@ -39,7 +15,7 @@ shoppingCart.addEventListener("click", openItems);
 
 function openItems()
 {
-    if(productCart.innerHTML !="")
+    if(productCartDiv.innerHTML !="")
     {
         if(cartproducts.style.display=="block")
         {
@@ -85,16 +61,47 @@ let products = [
     })
     productDom.innerHTML=productsUi;
  }
-drawData();
+ 
 
+
+drawData();
+let addedItem = localStorage.getItem('cartproducts') ? 
+JSON.parse(localStorage.getItem("cartproducts")) :
+[];
+if(addedItem)
+{
+    addedItem.map((item) => {
+        productCartDiv.innerHTML += ` <p>${item.title} </p> `
+        badgeDom.style.display="block";
+        let cartItems=document.querySelectorAll(".cart-products div p")
+
+        badgeDom.innerHTML = cartItems.length;
+
+    })
+}
 function addtoCart(id)
 {
-    let chossenItem = products.find((item) => item.id===id);
-    productCart.innerHTML += ` <p>${chossenItem.title} </p> `
+    if(localStorage.getItem("username"))
+    {
+        let chossenItem = products.find((item) => item.id===id);
 
-    badgeDom.style.display="block";
-    let cartItems=document.querySelectorAll(".cart-products div p")
-    badgeDom.innerHTML = cartItems.length;
+        productCartDiv.innerHTML += ` <p>${chossenItem.title} </p> `
+    
+        addedItem = [...addedItem , chossenItem]
+        localStorage.setItem("cartproducts", JSON.stringify(addedItem))
+
+        badgeDom.style.display="block";
+        let cartItems=document.querySelectorAll(".cart-products div p")
+        badgeDom.innerHTML = cartItems.length;
+
+      
+
+
+    }else{
+        window.location="login.html"
+    }
+
+ 
 }
 
     
