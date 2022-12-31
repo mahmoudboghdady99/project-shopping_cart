@@ -65,20 +65,21 @@ let products = [
 
 
 drawData();
-let addedItem = localStorage.getItem('cartproducts') ? 
-JSON.parse(localStorage.getItem("cartproducts")) :
+addedItem = localStorage.getItem('productincart') ? 
+JSON.parse(localStorage.getItem('productincart')) : 
 [];
+
 if(addedItem)
 {
     addedItem.map((item) => {
         productCartDiv.innerHTML += ` <p>${item.title} </p> `
+        
         badgeDom.style.display="block";
         let cartItems=document.querySelectorAll(".cart-products div p")
-
         badgeDom.innerHTML = cartItems.length;
-
     })
 }
+
 function addtoCart(id)
 {
     if(localStorage.getItem("username"))
@@ -87,8 +88,8 @@ function addtoCart(id)
 
         productCartDiv.innerHTML += ` <p>${chossenItem.title} </p> `
     
-        addedItem = [...addedItem , chossenItem]
-        localStorage.setItem("cartproducts", JSON.stringify(addedItem))
+       addedItem=[...addedItem , chossenItem]
+       localStorage.setItem("productincart", JSON.stringify(addedItem))
 
         badgeDom.style.display="block";
         let cartItems=document.querySelectorAll(".cart-products div p")
@@ -119,9 +120,7 @@ function addtoCart(id)
 
 
 
-// let chossenItem = products.find((item) => item.id === id);
-// cartProductDom.innerHTML += `<p>${chossenItem.title}</p>`
-//
+
 
 
 
